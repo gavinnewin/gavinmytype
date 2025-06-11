@@ -1,17 +1,44 @@
-import { Link } from 'react-router-dom';
-import './Navbar.css'; // for styling
+// filepath: c:\Users\gavin\Desktop\cs projects\tiktok personal website\src\components\Navbar.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="header">
-      <Link to="/" className="logo">gavinmytype</Link>
-      <nav className="navbar">
-        <Link to="/" className="active">Home</Link>
-        <Link to="/about" className="active">About</Link>
-        <Link to="/links" className="active">Product Links</Link>
-        <Link to="/monkeytype" className="active">GavinType</Link> {/* was gavintype.html */}
-        <Link to="/keytester" className="active">KeyTester</Link>
-        <a href="mailto:gavinnguyen.contact@gmail.com" className="active" target="_blank" rel="noopener noreferrer">Contact</a> {/* external email */}
+      {/* Logo */}
+      <Link to="/" className="logo">
+        gavinmytype
+      </Link>
+
+   
+
+      {/* Nav links: by default visible on desktop; hidden on mobile unless “open” */}
+      <nav className={`navbar${open ? " open" : ""}`}>
+        <Link to="/" onClick={() => setOpen(false)}>
+          Home
+        </Link>
+        <Link to="/about" onClick={() => setOpen(false)}>
+          About
+        </Link>
+        <Link to="/products" onClick={() => setOpen(false)}>
+          Product Links
+        </Link>
+        <Link to="/monkeytype" onClick={() => setOpen(false)}>
+          GavinType
+        </Link>
+        <Link to="/keytester" onClick={() => setOpen(false)}>
+          KeyTester
+        </Link>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=gavinmytype@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+        >
+          Contact
+        </a>
       </nav>
     </header>
   );
