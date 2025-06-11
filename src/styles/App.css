@@ -70,14 +70,16 @@ body{
     border-bottom: 3px solid var(--main-color);
 }
 
-.home-pg{
+.home-pg {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15rem;
+    padding: 0 2rem;
+    margin-top: 2rem;
 }
 
-.home-content{
+.home-content {
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -495,4 +497,124 @@ span{
 
 .social-icons a:hover {
     transform: scale(1.05);
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .home-pg {
+        gap: 8rem;
+    }
+
+    .home-content h1 {
+        font-size: 5.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.8rem;
+    }
+
+    .ppf-img img {
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-pg {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 13rem;
+    }
+
+    .home-content {
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .home-content h2 {
+        margin-top: 2rem;
+        font-size: 1.3rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .home-content h3 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .ppf-img {
+        margin-top: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ppf-img img {
+        max-width: 200px;
+        top: 0;
+        position: relative;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .icons a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        margin: 1.5rem 0.5rem;
+    }
+
+    .btn-container a {
+        padding: 0.8rem 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .animation {
+        font-size: 28px;
+        min-width: 220px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-content h1 {
+        font-size: 3rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .ppf-img img {
+        max-width: 180px;
+    }
+
+    .icons a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.3rem;
+        margin: 1rem 0.3rem;
+    }
+
+    .btn-container a {
+        padding: 0.7rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    .animation {
+        font-size: 24px;
+        min-width: 200px;
+    }
 }

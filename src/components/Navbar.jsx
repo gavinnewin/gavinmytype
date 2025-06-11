@@ -1,6 +1,7 @@
 // filepath: c:\Users\gavin\Desktop\cs projects\tiktok personal website\src\components\Navbar.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -12,10 +13,19 @@ function Navbar() {
         gavinmytype
       </Link>
 
-   
+      {/* Hamburger Button */}
+      <button 
+        className={`hamburger ${open ? 'active' : ''}`} 
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      {/* Nav links: by default visible on desktop; hidden on mobile unless “open” */}
-      <nav className={`navbar${open ? " open" : ""}`}>
+      {/* Nav links */}
+      <nav className={`navbar ${open ? "open" : ""}`}>
         <Link to="/" onClick={() => setOpen(false)}>
           Home
         </Link>
