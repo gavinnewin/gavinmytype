@@ -1,10 +1,27 @@
-// filepath: c:\Users\gavin\Desktop\cs projects\tiktok personal website\src\components\Navbar.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <header className="header">
@@ -32,7 +49,7 @@ function Navbar() {
         <Link to="/about" onClick={() => setOpen(false)}>
           About
         </Link>
-        <Link to="/products" onClick={() => setOpen(false)}>
+        <Link to="/links" onClick={() => setOpen(false)}>
           Product Links
         </Link>
         <Link to="/monkeytype" onClick={() => setOpen(false)}>
@@ -49,6 +66,16 @@ function Navbar() {
         >
           Contact
         </a>
+        <div className="theme-toggle">
+          <label className="switch">
+            <input 
+              type="checkbox" 
+              checked={isDarkMode}
+              onChange={toggleTheme}
+            />
+            <span className="slider round"></span>
+          </label>
+        </div>
       </nav>
     </header>
   );
